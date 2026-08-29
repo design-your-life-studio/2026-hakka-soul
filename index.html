@@ -108,7 +108,7 @@
         }
 
         /* 標題與特殊文字使用明體增加文化氣息，加入完整 iOS/Windows 備用明體 */
-        .font-serif { font-family: 'Noto Serif TC', 'Songti TC', 'STSong', 'Apple LiSung', 'PMingLiU', serif; }
+        .font-serif { font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important; }
 
         /* ================= 標題美化 ================= */
         .title-sup {
@@ -221,8 +221,8 @@
 
     <div class="marquee-bar">
         <div class="marquee-inner">
-            <div class="marquee-content font-serif">✦ 高雄客家屬性大揭密 ✦ 穿梭南部客庄 ✦ 測出你的隱藏客家魂 ✦ 尋找最道地的文化基因 ✦</div>
-            <div class="marquee-content font-serif">✦ 高雄客家屬性大揭密 ✦ 穿梭南部客庄 ✦ 測出你的隱藏客家魂 ✦ 尋找最道地的文化基因 ✦</div>
+            <div class="marquee-content font-serif" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">✦ 高雄客家屬性大揭密 ✦ 穿梭南部客庄 ✦ 測出你的隱藏客家魂 ✦ 尋找最道地的文化基因 ✦</div>
+            <div class="marquee-content font-serif" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">✦ 高雄客家屬性大揭密 ✦ 穿梭南部客庄 ✦ 測出你的隱藏客家魂 ✦ 尋找最道地的文化基因 ✦</div>
         </div>
     </div>
 
@@ -240,13 +240,13 @@
                 <i class="music-icon ph-fill ph-speaker-slash text-xl"></i>
             </button>
 
-            <!-- 調整這裡的 pt-28 為 pt-40，讓整個內容區塊往下移動 -->
-            <div class="flex flex-col items-center h-full pt-28 pb-10 relative z-10">
-                <div class="flex flex-col items-center w-full flex-grow justify-start pt-6">
+            <!-- 修改 1：將 h-full 改為 min-h-full，允許內容在小螢幕時撐開高度 -->
+            <div class="flex flex-col items-center min-h-full pt-28 pb-8 relative z-10">
+                <div class="flex flex-col items-center w-full flex-grow justify-start pt-2">
                     
-                    <div class="title-wrapper flex flex-col items-center gap-8 mb-8">
-                        <div class="title-sup font-serif">穿梭南部客庄</div>
-                        <h1 class="title-main font-serif">
+                    <div class="title-wrapper flex flex-col items-center gap-8 mb-6">
+                        <div class="title-sup font-serif" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">穿梭南部客庄</div>
+                        <h1 class="title-main font-serif" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">
                             客家魂<br>
                             <span class="text-[0.7em] text-[--hakka-red] font-bold">大發現</span>
                         </h1>
@@ -301,9 +301,10 @@
                     </div>
                 </div>
                 
-                <div class="w-full flex justify-center mt-auto pb-6">
+                <!-- 修改 2：加入 pt-12 (安全間距) 與 flex-shrink-0 (防止被壓縮) -->
+                <div class="w-full flex justify-center mt-auto pt-12 pb-6 flex-shrink-0">
                     <button onclick="startQuiz()" class="group px-10 py-4 rounded-full bg-[--hakka-red] text-white font-bold text-lg shadow-[0_10px_20px_rgba(184,51,68,0.3)] transition-all hover:bg-[#992837] hover:shadow-[0_12px_25px_rgba(184,51,68,0.4)] active:scale-95 flex items-center gap-3">
-                        <span class="font-serif tracking-widest">開始測驗</span> 
+                        <span class="font-serif tracking-widest" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">開始測驗</span> 
                         <i class="ph-bold ph-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </button>
                 </div>
@@ -322,14 +323,14 @@
                         <div id="progress-bar" class="absolute top-0 left-0 h-full bg-[--hakka-blue] transition-all duration-500 rounded-full" style="width: 0%;"></div>
                     </div>
                     <div class="flex items-center gap-3">
-                        <span id="question-counter" class="text-sm font-bold text-[--hakka-blue] font-serif tracking-wide">1/6</span>
+                        <span id="question-counter" class="text-sm font-bold text-[--hakka-blue] font-serif tracking-wide" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">1/6</span>
                     </div>
                 </div>
 
                 <div class="flex-grow flex flex-col justify-center items-center w-full pb-10">
                     <div id="quiz-card" class="bg-white/90 backdrop-blur-md w-full border border-white rounded-[28px] p-8 shadow-[0_15px_40px_rgba(40,75,126,0.1)] relative z-10 transition-opacity duration-300">
                         <div class="w-8 h-1 bg-[--hakka-gold] rounded-full mx-auto mb-6 opacity-60"></div>
-                        <h2 id="question-text" class="text-lg font-bold text-[--text-main] text-center mb-8 leading-relaxed font-serif">載入題目中...</h2>
+                        <h2 id="question-text" class="text-lg font-bold text-[--text-main] text-center mb-8 leading-relaxed font-serif" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">載入題目中...</h2>
                         <div id="options-container" class="flex flex-col gap-3 w-full"></div>
                     </div>
                 </div>
@@ -354,7 +355,7 @@
                         <div class="absolute bottom-0 right-0 w-16 h-16 opacity-10 pointer-events-none" style="background: radial-gradient(circle at 100% 100%, var(--hakka-red) 0%, transparent 70%);"></div>
 
                         <div class="mb-4 relative z-20">
-                            <span class="text-[--hakka-gold] text-sm font-bold tracking-widest font-serif">✦ 你的客家文化屬性 ✦</span>
+                            <span class="text-[--hakka-gold] text-sm font-bold tracking-widest font-serif" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">✦ 你的客家文化屬性 ✦</span>
                         </div>
                         
                         <div class="w-full flex flex-col items-center">
@@ -363,7 +364,7 @@
                                 <!-- 圖標與蓋章認證動態插入 -->
                             </div>
                             
-                            <h2 id="result-title" class="text-[32px] font-black text-[--hakka-blue] mt-0 mb-4 tracking-wide font-serif relative z-20">結果標題</h2>
+                            <h2 id="result-title" class="text-[32px] font-black text-[--hakka-blue] mt-0 mb-4 tracking-wide font-serif relative z-20" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">結果標題</h2>
                             
                             <div id="result-tags" class="flex gap-2 justify-center mb-5 flex-wrap relative z-20"></div>
                             
@@ -391,7 +392,7 @@
                 </div>
 
                 <div class="w-full bg-white/80 backdrop-blur-md rounded-[28px] p-6 shadow-sm border border-white flex flex-col items-center text-center mt-2">
-                    <p class="text-[--hakka-red] font-bold text-sm mb-1 font-serif tracking-widest">體驗真實的高雄客庄</p>
+                    <p class="text-[--hakka-red] font-bold text-sm mb-1 font-serif tracking-widest" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">體驗真實的高雄客庄</p>
                     <p class="text-gray-500 font-medium text-xs mb-5">鳳山美濃客庄指南｜活動熱烈籌備中</p>
                     
                     <a href="#" target="_blank" onclick="playClickSFX()" class="w-full py-3.5 bg-[--hakka-gold] rounded-2xl shadow-md flex items-center justify-center gap-2 active:scale-95 text-white transition-transform hover:bg-[#b08e50] mb-0 no-underline">
@@ -419,7 +420,7 @@
         <div id="share-modal-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[1000] hidden opacity-0 transition-opacity duration-300 flex flex-col justify-end" onclick="closeShareModal()">
             <div id="share-modal" class="bg-white rounded-t-3xl p-6 pb-10 transform translate-y-full transition-transform duration-400 ease-out w-full max-w-[414px] mx-auto" onclick="event.stopPropagation()">
                 <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-lg font-bold text-[--hakka-blue] flex items-center gap-2 font-serif">
+                    <h3 class="text-lg font-bold text-[--hakka-blue] flex items-center gap-2 font-serif" style="font-family: 'Noto Serif TC', 'PingFang TC', 'STHeitiTC-Light', 'LiHei Pro', 'Heiti TC', 'Apple LiGothic', 'AppleGothic', 'Microsoft JhengHei', sans-serif !important;">
                         <i class="ph-bold ph-share-network"></i> 分享給親友
                     </h3>
                     <button onclick="closeShareModal()" class="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full text-gray-500 hover:bg-gray-200">
@@ -622,7 +623,11 @@
             if (!isFirst) { quizCard.style.opacity = 0; setTimeout(updateContent, 200); } else updateContent();
 
             function updateContent() {
-                document.getElementById('question-text').innerHTML = `Q${currentQuestionIndex + 1}.<br><span class="text-base font-medium mt-2 block font-sans">${qData.q}</span>`;
+                // 將數字轉換為中文數字
+                const chineseNumbers = ['一', '二', '三', '四', '五', '六'];
+                const qNumberText = `第${chineseNumbers[currentQuestionIndex]}題`;
+                
+                document.getElementById('question-text').innerHTML = `${qNumberText}<br><span class="text-base font-medium mt-3 block font-sans text-gray-700">${qData.q}</span>`;
                 const container = document.getElementById('options-container');
                 container.innerHTML = '';
                 qData.options.forEach((opt) => {
