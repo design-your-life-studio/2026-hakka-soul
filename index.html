@@ -147,12 +147,17 @@
             backdrop-filter: blur(5px);
             border: 1px solid rgba(40, 75, 126, 0.1);
         }
-        .quiz-option:hover {
-            border-color: var(--hakka-blue);
-            background: rgba(245, 248, 252, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(40, 75, 126, 0.08);
+        
+        /* 修復手機版 Sticky Hover (殘影) 問題：只在支援滑鼠的裝置啟用 hover 效果 */
+        @media (hover: hover) {
+            .quiz-option:hover {
+                border-color: var(--hakka-blue);
+                background: rgba(245, 248, 252, 0.9);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(40, 75, 126, 0.08);
+            }
         }
+
         .quiz-option:active, .quiz-option.selected {
             background-color: var(--hakka-blue) !important;
             color: white !important;
@@ -177,7 +182,7 @@
             100% { transform: scale(1) rotate(0deg); opacity: 0.85; }
         }
         .stamp-auth {
-            position: absolute; bottom: -5px; right: 0px;  
+            position: absolute; bottom: 15px; right: 15px;  
             width: 60px; height: 60px;
             border: 3px solid var(--hakka-red);
             border-radius: 4px;
@@ -352,12 +357,14 @@
                         </div>
                         
                         <div class="w-full flex flex-col items-center">
-                            <!-- 圖標與印章 -->
-                            <div id="result-icon" class="relative z-10 w-full flex items-center justify-center min-h-[150px] mb-4">
-                                <!-- 角色圖片與蓋章認證會動態插入在這裡 -->
+                            <!-- 圖標、印章與標題複合容器 (220x220) -->
+                            <div class="relative z-10 w-[220px] h-[220px] mb-8 mt-2">
+                                <div id="result-icon" class="w-full h-full relative">
+                                    <!-- 角色圖片與蓋章認證會動態插入在這裡 -->
+                                </div>
+                                <!-- 標題壓在圖片底部，加上白色描邊與發光確保可讀性 -->
+                                <h2 id="result-title" class="absolute -bottom-5 left-0 w-full text-[32px] font-black text-[--hakka-blue] tracking-wide font-serif z-20 pointer-events-none" style="text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff, 0 5px 15px rgba(255,255,255,0.9), 0 2px 5px rgba(40,75,126,0.2);">結果標題</h2>
                             </div>
-                            
-                            <h2 id="result-title" class="text-[32px] font-black text-[--hakka-blue] mt-2 mb-4 tracking-wide font-serif relative z-20">結果標題</h2>
                             
                             <div id="result-tags" class="flex gap-2 justify-center mb-5 flex-wrap relative z-20"></div>
                             
@@ -656,10 +663,9 @@
             
             const iconContainer = document.getElementById('result-icon');
             
-            // 將原本的 <i> 標籤替換為 <img> 標籤載入角色圖片
-            // 如果圖片路徑遺失或還沒放進去，會自動顯示 onerror 裡面的佔位圖
+            // 移除了 drop-shadow-xl 與固定尺寸 w-36 h-36，改由父元素控制滿版 (220x220)
             iconContainer.innerHTML = `
-                <img src="${result.img}" alt="${result.title}" class="w-36 h-36 object-contain drop-shadow-xl relative z-10" onerror="this.src='https://placehold.co/200x200/F9F6F0/284B7E?text=角色圖片'">
+                <img src="${result.img}" alt="${result.title}" class="w-full h-full object-contain relative z-10" onerror="this.src='https://placehold.co/220x220/F9F6F0/284B7E?text=角色圖片'">
             `;
             
             const stampDiv = document.createElement('div');
