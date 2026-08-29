@@ -30,7 +30,8 @@
         }
 
         body {
-            font-family: 'Noto Sans TC', sans-serif;
+            /* 加入完整黑體備用字型 (包含蘋果 PingFang TC 與微軟正黑體) */
+            font-family: 'Noto Sans TC', 'PingFang TC', 'Apple LiGothic Medium', 'Microsoft JhengHei', sans-serif;
             background-color: var(--bg-beige);
             /* 優雅的放射狀漸層，營造質感 */
             background-image: radial-gradient(circle at top right, #FFFFFF 0%, var(--bg-beige) 60%, #EBE5D9 100%);
@@ -105,6 +106,9 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* 標題與特殊文字使用明體增加文化氣息，加入完整 iOS/Windows 備用明體 */
+        .font-serif { font-family: 'Noto Serif TC', 'Songti TC', 'STSong', 'Apple LiSung', 'PMingLiU', serif; }
 
         /* ================= 標題美化 ================= */
         .title-sup {
@@ -236,14 +240,15 @@
                 <i class="music-icon ph-fill ph-speaker-slash text-xl"></i>
             </button>
 
+            <!-- 調整這裡的 pt-28 為 pt-40，讓整個內容區塊往下移動 -->
             <div class="flex flex-col items-center h-full pt-28 pb-10 relative z-10">
                 <div class="flex flex-col items-center w-full flex-grow justify-start pt-6">
                     
-                    <div class="title-wrapper flex flex-col items-center gap-2 mb-8">
+                    <div class="title-wrapper flex flex-col items-center gap-8 mb-8">
                         <div class="title-sup font-serif">穿梭南部客庄</div>
                         <h1 class="title-main font-serif">
-                            南部<br>
-                            <span class="text-[0.7em] text-[--hakka-red] font-bold">客家魂</span>
+                            客家魂<br>
+                            <span class="text-[0.7em] text-[--hakka-red] font-bold">大發現</span>
                         </h1>
                     </div>
                     
