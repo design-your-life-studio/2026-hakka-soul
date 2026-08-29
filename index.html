@@ -398,6 +398,17 @@
                         <span class="text-sm font-bold tracking-widest">前往活動專區</span>
                         <i class="ph-bold ph-arrow-right"></i>
                     </a>
+
+                    <!-- 新增的海報圖片區塊 (加入點擊放大功能) -->
+                    <div class="w-full mt-5 rounded-xl overflow-hidden border border-gray-100 shadow-sm relative bg-[--bg-beige] cursor-zoom-in group" onclick="openLightbox(this)">
+                        <!-- 設定圖片路徑為 images/main-poster.jpg，若找不到檔案會暫時顯示 placehold.co 的佔位圖 -->
+                        <img src="images/main-poster.jpg" alt="活動海報" class="w-full h-auto block object-cover transition-transform duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/800x1000/EBE5D9/284B7E?text=活動海報圖片預定地\n(images/main-poster.jpg)'">
+                        
+                        <!-- 懸停時顯示放大圖示 (增加 UX 體驗) -->
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                            <i class="ph-bold ph-magnifying-glass-plus text-white text-3xl drop-shadow-lg"></i>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="h-6 w-full flex-shrink-0"></div>
@@ -450,6 +461,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- 圖片放大燈箱 (Lightbox) -->
+        <div id="image-lightbox" class="fixed inset-0 bg-black/90 z-[2000] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox()">
+            <button onclick="closeLightbox()" class="absolute top-6 right-6 w-10 h-10 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center text-white backdrop-blur-sm transition-colors z-50">
+                <i class="ph-bold ph-x text-xl"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="放大海報" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
         </div>
     </div>
 
@@ -709,6 +728,34 @@
             else if (platform === 'threads') shareUrl = `https://www.threads.net/intent/post?text=${text}%20${url}`;
             if (shareUrl) window.open(shareUrl, '_blank');
             closeShareModal();
+        }
+
+        function openLightbox(element) {
+            playClickSFX();
+            const imgElement = element.querySelector('img');
+            const lightbox = document.getElementById('image-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = imgElement.src;
+            lightbox.classList.remove('hidden');
+            // 強制重繪以觸發 CSS 動畫
+            void lightbox.offsetWidth;
+            lightbox.classList.remove('opacity-0');
+            lightbox.classList.add('opacity-100');
+            lightboxImg.classList.remove('scale-95');
+            lightboxImg.classList.add('scale-100');
+        }
+
+        function closeLightbox() {
+            playClickSFX();
+            const lightbox = document.getElementById('image-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightbox.classList.remove('opacity-100');
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => { lightbox.classList.add('hidden'); }, 300);
         }
 
         window.onload = function() {
