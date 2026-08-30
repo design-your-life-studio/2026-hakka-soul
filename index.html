@@ -29,14 +29,52 @@
 
         body {
             font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-            background-color: var(--bg-beige);
-            background-image: radial-gradient(circle at top right, #FFFFFF 0%, var(--bg-beige) 60%, #EBE5D9 100%);
+            background-color: transparent; /* 改由 global-bg 控制 */
             color: var(--text-main);
             margin: 0; padding: 0;
             display: flex; justify-content: center; align-items: flex-start;
             min-height: 100dvh;
             overflow: hidden;
         }
+
+        /* --- 動態藍染與宣紙背景系統 --- */
+        .global-bg {
+            position: fixed; inset: 0; z-index: -10;
+            background-color: var(--bg-beige);
+            overflow: hidden; pointer-events: none;
+        }
+
+        /* 宣紙紋理 */
+        .paper-texture {
+            position: absolute; inset: 0; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.35'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply; opacity: 0.4;
+            z-index: 2;
+        }
+
+        /* 固定的藍染角落暈染 */
+        .dye-blob {
+            position: absolute; filter: blur(70px); border-radius: 50%;
+            mix-blend-mode: multiply; opacity: 0.2; /* 確保文字可讀性 */
+            z-index: 1;
+        }
+        
+        .dye-blob-1 { 
+            background-color: #403dfc; /* 替換為亮藍色 */
+            width: 60vw; height: 60vw; min-width: 350px; min-height: 350px; 
+            top: -15%; left: -15%; 
+        }
+        .dye-blob-2 { 
+            background-color: #3386ff; /* 更新為新的清透客家藍 */
+            width: 70vw; height: 70vw; min-width: 400px; min-height: 400px; 
+            bottom: -15%; right: -15%; 
+        }
+        .dye-blob-3 { 
+            background-color: #ff4265; 
+            width: 55vw; height: 55vw; min-width: 300px; min-height: 300px; 
+            top: -10%; right: -20%; 
+        }
+        /* --- 背景系統結束 --- */
 
         #app-container {
             width: 100%; max-width: 414px; height: 100dvh; 
@@ -196,6 +234,14 @@
 </head>
 <body id="main-body">
 
+    <!-- 動態藍染與宣紙背景層 -->
+    <div class="global-bg">
+        <div class="dye-blob dye-blob-1"></div>
+        <div class="dye-blob dye-blob-2"></div>
+        <div class="dye-blob dye-blob-3"></div>
+        <div class="paper-texture"></div>
+    </div>
+
     <div id="transition-overlay" class="transition-overlay">
         <i class="ph-light ph-flower-lotus transition-logo"></i>
     </div>
@@ -220,6 +266,7 @@
 
         <div id="page-home" class="page active relative">
             
+            <!-- 保留原本的白色浮動光暈，與藍染結合會有更豐富的空間感 -->
             <div class="bg-floater w-[150px] h-[150px] top-[10%] left-[-20px]"></div>
             <div class="bg-floater w-[200px] h-[200px] top-[40%] right-[-50px]" style="animation-delay: -2s; animation-duration: 12s;"></div>
             <div class="bg-floater w-[120px] h-[120px] bottom-[20%] left-[10%]" style="animation-delay: -5s; animation-duration: 9s;"></div>
