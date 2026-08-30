@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>高雄客家屬性大揭密</title>
+    <title>高雄客家魂大揭密</title>
 
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <meta property="og:title" content="高雄客家屬性大揭密">
+    <meta property="og:title" content="高雄客家魂大揭密">
     <meta property="og:description" content="穿梭南部客庄，測測你的骨子裡藏著多少客家DNA！">
     <!-- 已經更新為您 GitHub Pages 的實際絕對路徑 -->
     <meta property="og:url" content="https://design-your-life-studio.github.io/2026-hakka-soul/">
@@ -16,7 +16,7 @@
     
     <!-- 增加 Twitter 卡片設定，確保 Threads / X 等平台也能正確顯示縮圖 -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="高雄客家屬性大揭密">
+    <meta name="twitter:title" content="高雄客家魂大揭密">
     <meta name="twitter:description" content="穿梭南部客庄，測測你的骨子裡藏著多少客家DNA！">
     <meta name="twitter:image" content="https://design-your-life-studio.github.io/2026-hakka-soul/images/share-preview.jpg">
     
@@ -265,8 +265,8 @@
 
     <div class="marquee-bar">
         <div class="marquee-inner">
-            <div class="marquee-content font-serif">✦ 高雄客家屬性大揭密 ✦ 穿梭南部客庄 ✦ 測出你的隱藏客家魂 ✦ 尋找最道地的文化基因 ✦</div>
-            <div class="marquee-content font-serif">✦ 高雄客家屬性大揭密 ✦ 穿梭南部客庄 ✦ 測出你的隱藏客家魂 ✦ 尋找最道地的文化基因 ✦</div>
+            <div class="marquee-content font-serif">✦ 高雄客家魂大揭密 ✦ 穿梭南部客庄 ✦ 測出你的隱藏客家魂 ✦ 尋找最道地的文化基因 ✦</div>
+            <div class="marquee-content font-serif">✦ 高雄客家魂大揭密 ✦ 穿梭南部客庄 ✦ 測出你的隱藏客家魂 ✦ 尋找最道地的文化基因 ✦</div>
         </div>
     </div>
 
@@ -289,7 +289,7 @@
                         <div class="title-sup font-serif">穿梭南部客庄</div>
                         <h1 class="title-main font-serif">
                             客家魂<br>
-                            <span class="text-[0.7em] text-[--hakka-red] font-bold block mt-2">大發現</span>
+                            <span class="text-[0.7em] text-[--hakka-red] font-bold block mt-2">大揭秘</span>
                         </h1>
                     </div>
                     
@@ -394,7 +394,7 @@
                         <div class="absolute bottom-0 right-0 w-16 h-16 opacity-10 pointer-events-none" style="background: radial-gradient(circle at 100% 100%, var(--hakka-red) 0%, transparent 70%);"></div>
 
                         <div class="mb-4 relative z-20">
-                            <span class="text-[--hakka-gold] text-sm font-bold tracking-widest font-serif">✦ 你的客家文化屬性 ✦</span>
+                            <span class="text-[--hakka-gold] text-sm font-bold tracking-widest font-serif">✦ 你的隱藏客家魂 ✦</span>
                         </div>
                         
                         <div class="w-full flex flex-col items-center">
@@ -414,7 +414,7 @@
                             </div>
                         </div>
                         <div class="mt-5 pt-4 w-full flex justify-between items-center text-[10px] font-bold text-gray-400 border-t border-gray-100 flex-shrink-0 relative z-20">
-                            <span>高雄客家屬性測驗</span>
+                            <span>客家魂大揭秘</span>
                             <span id="current-date">2026.XX.XX</span>
                         </div>
                     </div>
@@ -769,7 +769,7 @@
 
         function copyResultLink() {
             playClickSFX();
-            const shareText = `我剛測出我的南部客家屬性是【${currentResultTitle}】！\n你也來測測看你的骨子裡藏著多少客家DNA吧！\n${window.location.href}`;
+            const shareText = `我剛測出我的南部客家魂是【${currentResultTitle}】！\n你也來測測看你的骨子裡藏著多少客家DNA吧！\n${window.location.href}`;
             const dummy = document.createElement('input');
             document.body.appendChild(dummy); dummy.value = shareText; dummy.select();
             document.execCommand('copy'); document.body.removeChild(dummy);
@@ -779,7 +779,7 @@
         function shareSocial(platform) {
             playClickSFX();
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent(`我的南部客家屬性是【${currentResultTitle}】！你也來測測看隱藏基因吧！`);
+            const text = encodeURIComponent(`我的南部客家魂是【${currentResultTitle}】！你也來測測看隱藏客家魂吧！`);
             let shareUrl = "";
             if (platform === 'fb') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
             else if (platform === 'line') shareUrl = `https://line.me/R/msg/text/?${text}%20${url}`;
