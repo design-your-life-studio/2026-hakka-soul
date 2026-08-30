@@ -240,34 +240,43 @@
                     </div>
                     
                     <div class="w-full max-w-[85%] mt-4">
-                        <div class="bg-white/70 backdrop-blur-md rounded-3xl p-7 flex flex-col items-center shadow-[0_15px_35px_rgba(40,75,126,0.08)] relative overflow-hidden">
+                        <div class="bg-white/80 backdrop-blur-md rounded-2xl p-8 flex flex-col items-center shadow-[0_15px_35px_rgba(40,75,126,0.08)] relative overflow-hidden border border-white">
                             
-                            <div class="absolute inset-0 w-full h-full pointer-events-none z-0">
-                                <div class="absolute inset-[12px] border-[1.5px] border-[--hakka-blue] rounded-xl opacity-30"></div>
-                                <div class="absolute inset-[16px] border border-[--hakka-blue] rounded-lg opacity-20"></div>
+                            <div class="absolute inset-0 w-full h-full pointer-events-none z-0 p-3">
+                                <!-- 外層細線框 -->
+                                <div class="w-full h-full border border-[--hakka-blue] opacity-20 rounded-xl relative">
+                                    
+                                    <!-- 四個角落的裝飾點 -->
+                                    <div class="absolute -top-[3px] -left-[3px] w-[6px] h-[6px] bg-[--bg-beige] border border-[--hakka-blue] rounded-full"></div>
+                                    <div class="absolute -top-[3px] -right-[3px] w-[6px] h-[6px] bg-[--bg-beige] border border-[--hakka-blue] rounded-full"></div>
+                                    <div class="absolute -bottom-[3px] -left-[3px] w-[6px] h-[6px] bg-[--bg-beige] border border-[--hakka-blue] rounded-full"></div>
+                                    <div class="absolute -bottom-[3px] -right-[3px] w-[6px] h-[6px] bg-[--bg-beige] border border-[--hakka-blue] rounded-full"></div>
+
+                                    <!-- 上下中間的菱形裝飾 -->
+                                    <div class="absolute -top-[5px] left-1/2 -translate-x-1/2 w-[10px] h-[10px] bg-[--hakka-blue] rotate-45 opacity-40"></div>
+                                    <div class="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-[10px] h-[10px] bg-[--hakka-blue] rotate-45 opacity-40"></div>
+                                </div>
                                 
-                                <svg width="24" height="24" class="absolute top-[12px] left-[12px] opacity-40">
-                                    <path d="M 0 24 L 0 0 L 24 0" fill="none" stroke="var(--hakka-blue)" stroke-width="1.5" />
-                                    <path d="M 4 24 L 4 4 L 24 4" fill="none" stroke="var(--hakka-blue)" stroke-width="1" />
+                                <!-- 內層角落 L 型裝飾 -->
+                                <svg class="absolute top-[18px] left-[18px] w-6 h-6 opacity-30 text-[--hakka-blue]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M 0 24 L 0 0 L 24 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M 6 18 L 6 6 L 18 6" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                <svg width="24" height="24" class="absolute top-[12px] right-[12px] opacity-40" style="transform: scaleX(-1);">
-                                    <path d="M 0 24 L 0 0 L 24 0" fill="none" stroke="var(--hakka-blue)" stroke-width="1.5" />
-                                    <path d="M 4 24 L 4 4 L 24 4" fill="none" stroke="var(--hakka-blue)" stroke-width="1" />
+                                <svg class="absolute top-[18px] right-[18px] w-6 h-6 opacity-30 text-[--hakka-blue]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scaleX(-1);">
+                                    <path d="M 0 24 L 0 0 L 24 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M 6 18 L 6 6 L 18 6" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                <svg width="24" height="24" class="absolute bottom-[12px] left-[12px] opacity-40" style="transform: scaleY(-1);">
-                                    <path d="M 0 24 L 0 0 L 24 0" fill="none" stroke="var(--hakka-blue)" stroke-width="1.5" />
-                                    <path d="M 4 24 L 4 4 L 24 4" fill="none" stroke="var(--hakka-blue)" stroke-width="1" />
+                                <svg class="absolute bottom-[18px] left-[18px] w-6 h-6 opacity-30 text-[--hakka-blue]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scaleY(-1);">
+                                    <path d="M 0 24 L 0 0 L 24 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M 6 18 L 6 6 L 18 6" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                <svg width="24" height="24" class="absolute bottom-[12px] right-[12px] opacity-40" style="transform: scale(-1, -1);">
-                                    <path d="M 0 24 L 0 0 L 24 0" fill="none" stroke="var(--hakka-blue)" stroke-width="1.5" />
-                                    <path d="M 4 24 L 4 4 L 24 4" fill="none" stroke="var(--hakka-blue)" stroke-width="1" />
+                                <svg class="absolute bottom-[18px] right-[18px] w-6 h-6 opacity-30 text-[--hakka-blue]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(-1, -1);">
+                                    <path d="M 0 24 L 0 0 L 24 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M 6 18 L 6 6 L 18 6" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                
-                                <div class="absolute top-[12px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[--hakka-blue] opacity-40 rotate-45"></div>
-                                <div class="absolute bottom-[12px] left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-[--hakka-blue] opacity-40 rotate-45"></div>
                             </div>
 
-                            <p class="text-[--text-main] text-[14px] font-medium leading-loose text-center relative z-10">
+                            <p class="text-[--text-main] text-[15px] font-medium leading-relaxed tracking-normal text-center relative z-10 my-2">
                                 從鳳山的都會繁華<br>
                                 走入美濃的純樸風景，<br>
                                 你的骨子裡藏著多少客家DNA？<br>
@@ -761,6 +770,26 @@
             };
             document.addEventListener('click', initAudio, { once: true });
             document.addEventListener('touchstart', initAudio, { once: true });
+
+            // 預先載入圖片，提升結果頁顯示速度
+            setTimeout(() => {
+                const imagesToPreload = [
+                    "images/main-poster.jpg",
+                    "images/LOGO_FB.png",
+                    "images/LOGO_LINE.png",
+                    "images/LOGO_threads.png"
+                ];
+                
+                // 動態加入結果角色圖片
+                resultsData.forEach(result => {
+                    if (result.img) imagesToPreload.push(result.img);
+                });
+
+                imagesToPreload.forEach(src => {
+                    const img = new Image();
+                    img.src = src;
+                });
+            }, 1000); // 延遲1秒執行，確保不影響首頁的主要內容載入
         };
     </script>
 </body>
