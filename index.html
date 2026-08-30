@@ -288,8 +288,11 @@
         </div>
 
         <div id="page-quiz" class="page">
-            <div class="flex flex-col h-full w-full">
-                <div class="w-full pt-16 pb-4 flex items-center justify-between gap-4 px-2">
+            <div class="flex flex-col min-h-[calc(100%+80px)] w-full">
+                <!-- 預留給自動滾動的頂部空白 -->
+                <div class="w-full h-[80px] flex-shrink-0"></div>
+
+                <div class="w-full pt-12 pb-4 flex items-center justify-between gap-4 px-2">
                     <button onclick="restartQuiz()" class="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-full flex items-center justify-center text-[--hakka-blue] shadow-sm active:scale-90 transition-transform">
                         <i class="ph-bold ph-house text-xl"></i>
                     </button>
@@ -301,9 +304,11 @@
                     </div>
                 </div>
 
-                <div class="flex-grow flex flex-col justify-center items-center w-full pb-10">
+                <div class="flex-grow flex flex-col justify-start items-center w-full pt-2 pb-10">
                     <div id="quiz-card" class="bg-white/90 backdrop-blur-md w-full border border-white rounded-[28px] p-8 shadow-[0_15px_40px_rgba(40,75,126,0.1)] relative z-10 transition-opacity duration-300">
-                        <div class="w-8 h-1 bg-[--hakka-gold] rounded-full mx-auto mb-6 opacity-60"></div>
+                        <div class="w-full flex justify-center mb-4">
+                            <i class="ph-light ph-flower-lotus text-3xl text-[--hakka-gold] opacity-80"></i>
+                        </div>
                         <h2 id="question-text" class="text-lg font-bold text-[--text-main] text-center mb-8 leading-relaxed font-serif">載入題目中...</h2>
                         <div id="options-container" class="flex flex-col gap-3 w-full"></div>
                     </div>
@@ -565,6 +570,17 @@
                 currentQuestionIndex = 0; totalScore = 0;
                 switchPage(document.getElementById('page-home'), document.getElementById('page-quiz'));
                 renderQuestion(true);
+                
+                // 自動向下滾動，隱藏上方過多的空白
+                setTimeout(() => {
+                    const quizPage = document.getElementById('page-quiz');
+                    if (quizPage) {
+                        quizPage.scrollTo({
+                            top: 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
             });
         }
 
